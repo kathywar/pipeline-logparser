@@ -2,7 +2,7 @@
 
 
 // import logparser library
-@Library('pipeline-logparser@master') _
+@Library('pipeline-logparser@urlapi') _
 
 // uncomment if needed
 // logparser.setVerbose(true)
@@ -168,6 +168,10 @@ def parseLogs() {
     assert fullLog.contains('not in any branch')
     assert fullLog.contains('[main] [init]')
     assert fullLog.contains('[main] [build]')
+
+    print logparser.getBlueOceanLogMap()
+
+    print logparser.getPipelineStepsLogMap()
 }
 
 runBranches()
@@ -182,6 +186,7 @@ parseLogs()
 runBranchesWithManyLines(1000)
 timestamps {
     print 'before parsing'
+    print logparser.getBlueOceanLogMap()
     logparser.archiveLogsWithBranchInfo('manylines1000.txt')
     print 'after parsing'
 }
@@ -189,6 +194,7 @@ timestamps {
 runBranchesWithManyLines(10*1000)
 timestamps {
     print 'before parsing'
+    print logparser.getBlueOceanLogMap()
     logparser.archiveLogsWithBranchInfo('manylines10000.txt')
     print 'after parsing'
 }
@@ -196,6 +202,7 @@ timestamps {
 runBranchesWithManyLines(100*1000)
 timestamps {
     print 'before parsing'
+    print logparser.getBlueOceanLogMap()
     logparser.archiveLogsWithBranchInfo('manylines100000.txt')
     print 'after parsing'
 }
@@ -203,6 +210,7 @@ timestamps {
 runBranchesWithManyLines(1000*1000)
 timestamps {
     print 'before parsing'
+    print logparser.getBlueOceanLogMap()
     logparser.archiveLogsWithBranchInfo('manylines1000000.txt')
     print 'after parsing'
 }
@@ -210,6 +218,7 @@ timestamps {
 runBranchesWithManyLines(10*1000*1000)
 timestamps {
     print 'before parsing'
+    print logparser.getBlueOceanLogMap()
     logparser.archiveLogsWithBranchInfo('manylines10000000.txt')
     print 'after parsing'
 }

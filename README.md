@@ -13,6 +13,11 @@ a library to parse and filter logs
 * 1.0.1 (11/2019)
   - fix parsing issues (when there is only one branch and when logs of 2 branches are mixed without pipeline technical logs in between)
 
+* 2.0 (11/2019)
+  - new API to retrieve URLs to logs of branches (blueOcean and pipeline Steps URLs)
+  - enhance exsting API to parse logs from another run/job
+  - handle logs from stages
+
 ## content
 it allows
 - to add branch prefix [branchName] in front of each line of the logs belonging to a parallel branch
@@ -116,7 +121,7 @@ Note:
 ### import logparser library
 in Jenkinsfile import library like this
 ```
-@Library('pipeline-logparser@1.0.1') _
+@Library('pipeline-logparser@2.0') _
 ```
   * identifier "pipeline-logparser" is the name of the library set by jenkins administrator in configuration: it may be different on your instance
 
@@ -187,7 +192,7 @@ in Jenkinsfile import library like this
   ```
   example:  
   ```
-  @Library('pipeline-logparser@1.0.1') _
+  @Library('pipeline-logparser@2.0') _
 
   parallel(
     branch1: {
